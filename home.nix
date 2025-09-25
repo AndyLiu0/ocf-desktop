@@ -78,7 +78,7 @@
   programs = {
     fuzzel = {
       enable = true;
-      settings.main.anchor = "bottom-left";
+      settings.main.anchor = "bottom-right";
     };
     waybar = {
       enable = true;
@@ -115,11 +115,15 @@
       defaultEditor = true;
       extraConfig = ''
         set background=dark
-	colorscheme gruvbox
 	set number
+	set relativenumber
+	let &scrolloff = 4
       '';
       plugins = with pkgs.vimPlugins; [
-        gruvbox
+        {
+	plugin = gruvbox-nvim;
+	config = ''source ./gruvbox.lua'';
+	}
         neo-tree-nvim
         nvim-web-devicons #neotree optional
         nvim-window-picker #neotree optional
