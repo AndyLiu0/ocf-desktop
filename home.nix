@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "jaysa";
-  home.homeDirectory = "/home/j/ja/jaysa";
+  home.username = "andwinliu";
+  home.homeDirectory = "/home/a/an/andwinliu";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -107,8 +107,8 @@
     };
     git = {
       enable = true;
-      userName = "jaysa68";
-      userEmail = "gh@jaysa.net";
+      userName = "AndyLiu0";
+      userEmail = "andwinliu@gmail.com";
     };
     neovim = {
       enable = true;
@@ -167,7 +167,7 @@
       output = {
         HDMI-A-2 = {
 	  scale = "1.6";
-	  bg = "/home/j/ja/jaysa/remote/sway-home-manager/wp-1.jpg fill";
+	  bg = "/home/a/an/andwinliu/remote/home-manager/SILKSONGCLOWN2.jpg fill";
 	};
       };
       modifier = "Mod4";
