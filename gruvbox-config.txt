@@ -1,0 +1,27 @@
+require("gruvbox").setup({
+terminal_colors = true, -- add neovim terminal colors
+undercurl = true,
+underline = true,
+bold = true,
+italic = {
+strings = tue,
+emphasis = true,
+comments = true,
+operators = false,
+folds = true,
+},
+rstrikethrough = true,
+invet_selection = false,
+invert_signs = false,
+invert_tabline = false,
+inverse = true, -- invert background for search, diffs, statuslines and errors
+contrast = "hard", -- can be "hard", "soft" or empty string
+palette_overrides = {
+dark0_hard = "#101010",
+bright_blue = "#50c0b0",
+bright_purple = "#d040c0"
+},
+overrides = {},
+dim_inactive = false,
+transparent_mode = false,
+});
