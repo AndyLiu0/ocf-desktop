@@ -1,7 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
+  home.sessionVariables = {
+    # EDITOR = "emacs";
+    WAYFIRE_CONFIG_FILE="/home/a/an/andwinliu/remote/home-manager/wayfire.ini";
+    TEST="hellohithisworked";
+  };
+
+# Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "andwinliu";
   home.homeDirectory = "/home/a/an/andwinliu";
@@ -18,6 +24,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+  	#pkgs.wayfire
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -39,6 +46,9 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+  	#".config/wayfire.ini".force = true;
+	".config/wayfire.ini".source = ./wayfire.ini;
+	".config/test.jpg".source=./SILKSONGCLOWN.jpg;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -67,9 +77,7 @@
   #
   #  /etc/profiles/per-user/jaysa/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
+
 
   # Let Home Manager install and manage itself.
 
@@ -110,6 +118,7 @@
       userName = "AndyLiu0";
       userEmail = "andwinliu@gmail.com";
     };
+    
     neovim = {
       enable = true;
       defaultEditor = true;
@@ -122,7 +131,7 @@
       plugins = with pkgs.vimPlugins; [
         {
 	plugin = gruvbox-nvim;
-	config = ''source ./gruvbox.lua'';
+	config = ''source ~/remote/home-manager/gruvbox.lua'';
 	}
         neo-tree-nvim
         nvim-web-devicons #neotree optional
@@ -159,10 +168,28 @@
         #size = 20.0;
       };
     };
-  };
+};
 
-  wayland.windowManager.sway = {
-    enable = true;
+  wayland.windowManager = {
+	wayfire = {
+	enable = false; 
+	#plugins = with pkgs.wayfirePlugins; [
+	#	wcm
+	#	wf-shell
+	#	wayfire-plugins-extra
+	#];
+	package = null;
+	settings = {
+		
+	core.plugins = "animate autostart command cube decoration expo fast-switcher fisheye foreign-toplevel grid gtk-shell idle invert move oswitch place resize session-lock shortcuts-inhibit switcher vswitch wayfire-shell window-rules wm-actions wobbly wrot zoom";
+	animate.close_animation = "fire";
+	#alpha.modifier = "<super> <alt>";
+	fisheye.zoom = 100;
+	wrot.activate = 273;
+	};
+	};#include <stdio.h>
+ sway = {
+    enable = false;
 
     # needed to set wallpaper from absolute filepath
     checkConfig = false;
@@ -170,7 +197,7 @@
     config = rec {
       output = {
         HDMI-A-2 = {
-	  scale = "1.6";
+	  scale = "1";
 	  bg = "/home/a/an/andwinliu/remote/home-manager/SILKSONGCLOWN2.jpg fill";
 	};
       };
@@ -194,6 +221,7 @@
       title_align center
     '';
 
+  };
   };
 
 }
