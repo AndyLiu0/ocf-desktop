@@ -179,15 +179,7 @@
 	#	wayfire-plugins-extra
 	#];
 	package = null;
-	settings = {
-		
-	core.plugins = "animate autostart command cube decoration expo fast-switcher fisheye foreign-toplevel grid gtk-shell idle invert move oswitch place resize session-lock shortcuts-inhibit switcher vswitch wayfire-shell window-rules wm-actions wobbly wrot zoom";
-	animate.close_animation = "fire";
-	#alpha.modifier = "<super> <alt>";
-	fisheye.zoom = 100;
-	wrot.activate = 273;
-	};
-	};#include <stdio.h>
+		};#include <stdio.h>
  sway = {
     enable = false;
 
