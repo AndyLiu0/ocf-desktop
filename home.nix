@@ -24,11 +24,14 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-  	#pkgs.wayfire
+    pkgs.wayfire
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-
+    pkgs.cmake
+    pkgs.meson
+    pkgs.ninja
+    pkgs.pkg-config
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -73,7 +76,7 @@
   #
   #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
   #
-  # or
+# or
   #
   #  /etc/profiles/per-user/jaysa/etc/profile.d/hm-session-vars.sh
   #
@@ -97,7 +100,7 @@
 	  modules-right = [ "tray" ];
 	  "wlr/taskbar" = {
 	    "format" = "{icon}";
-	    "icon-size" = 48;
+	    "icon-size" = 96;
 	    "tootltip-format" = "{title}";
 	    "on-click" = "activate";
 	    "app_ids-mapping" = {
@@ -106,7 +109,7 @@
 	  };
 	  "custom/launcher" = {
 	    "format" = "menu";
-	    "icon-size" = 48;
+	    "icon-size" = 96;
 	    "tootltip-format" = "{title}";
 	    "on-click" = "fuzzel";
 	  };
@@ -189,7 +192,7 @@
     config = rec {
       output = {
         HDMI-A-2 = {
-	  scale = "1";
+cale = "1";
 	  bg = "/home/a/an/andwinliu/remote/home-manager/SILKSONGCLOWN2.jpg fill";
 	};
       };
@@ -202,7 +205,7 @@
        "${modifier}+g" = "exec ${pkgs.firefox}/bin/firefox";
       };
       fonts = {
-        size = 16.0;
+        size = 32.0;
       };
       bars = [{ command = "waybar";}];
       floating.criteria = [ { "app_id"=".*"; } ];
